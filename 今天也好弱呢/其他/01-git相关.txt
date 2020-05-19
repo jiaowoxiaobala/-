@@ -18,3 +18,5 @@ git常见操作:
   7.git branch -d [branch-name] 删除分支
   8.git push origin --delete [branch-name] 删除远程分支
   9.git branch 新分支 指定分支-基于指定分支创建新分支
+  10.git push origin [branch-name] 把本地分支推送到远端
+  11.git merge [branch-name] 把指定分支合并到当前分支
