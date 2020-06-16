@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = '1px solid #000';
+
+    const rectH = 10;
+    const rectW = 10;
+    // 绘制表格
+    for (let i = 0; i < canvas.width / rectH; i++) {
+      ctx.lineWidth = .5;
+      // 第一步绘制横线
+      ctx.moveTo(0, i * rectH);
+      ctx.lineTo(canvas.width, i * rectH);
+      // 第二步绘制竖线
+      ctx.moveTo(i * rectW, 0);
+      ctx.lineTo(i * rectW, canvas.height);
+    }
+    // 描边
+    ctx.stroke();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 
+    伪元素:
+      ::first-line 为某个元素的第一行文字添加使用样式
+      ::first-letter为某个元素的文字的首字母或者第一个字添加使用样式
+      ::before在某个元素之前插入一些内容
+      ::after在某个元素之后插入一些内容
+      ::selection对光标选中的元素添加样式
+    伪类:
+      :link 选取未访问过的超链接元素
+      :visited 选取访问过的超链接元素
+      :hover 鼠标悬停的元素
+      :active 选取点中的超链接元素
+      :checked 选取勾选状态的input元素,只对radio/checkbox生效
+      :disabled 选取禁用的表单元素
+      :only-child选取唯一子元素
+     */
+    .p1::first-letter {
+      color: skyblue;
+    }
+    .p2::first-line {
+      color: pink;
+    }
+    .p3::selection {
+      color: green;
+    }
+    span:only-child {
+      color: blue;
+    }
+    .p4:empty {
+      height: 50px;
+      background-color: pink;
+    }
+    button:disabled {
+      background: skyblue;
+    }
+    button:hover {
+      background-color: pink;
+    }
+    a:active {
+      color: green;
+    }
+    [type="checkbox"]:checked {
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+<p class="p1">今天天气很好
+  <span>我是p1的子元素</span>
+</p>
+<p class="p2">好好学习 <br> 天天向上</p>
+<p class="p3">我被选中了</p>
+<p class="p4"></p>
+<button disabled>按钮</button>
+<a href="#">我是超链接</a>
+<input type="checkbox">
+</body>
+</html>

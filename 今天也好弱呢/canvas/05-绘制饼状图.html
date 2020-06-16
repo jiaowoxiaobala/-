@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = '1px solid #000';
+    // 弧长和角度的转换公式 rad = 角度 * Math.PI / 180;
+    const template = [
+      {
+        color: 'red',
+        value: .2
+      },
+      {
+        color: 'purple',
+        value: .1
+      },
+      {
+        color: 'skyblue',
+        value: .3
+      },
+      {
+        color: 'pink',
+        value: .4
+      }
+    ];
+    // 设置圆心坐标
+    const x0 = 200, y0 = 200;
+    // 开始的角度
+    let startAngle = -90;
+    // 半径
+    const radius = 100;
+    for (let i = 0; i < template.length; i++) {
+      // 开始新状态绘图
+      ctx.beginPath();
+      // 填充颜色
+      ctx.fillStyle = template[i].color;
+      // 当前扇形的角度
+      const currentAngle = template[i].value * 360;
+      // 每次都要把画笔移动到圆心位置
+      ctx.moveTo(x0, y0);
+      ctx.arc(x0, y0, radius, startAngle * Math.PI / 180, (startAngle + currentAngle) * Math.PI / 180);
+      startAngle += currentAngle;
+      ctx.fill();
+    }
+  </script>
+</body>
+
+</html>

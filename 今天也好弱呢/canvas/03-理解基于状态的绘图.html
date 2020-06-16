@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = '1px solid #000';
+
+    ctx.lineWitdh = 10;
+    // 开启一个新路径,开启新状态的绘图
+    // 新状态可以继承之前状态的样式,但是当前状态设置的所有样式,只能作用于当前的状态
+    ctx.beginPath();
+    ctx.strokeStyle = "red"
+    ctx.moveTo(100, 100);
+    ctx.lineTo(200, 100);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.strokeStyle = 'skyblue';
+    ctx.moveTo(100, 200);
+    ctx.lineTo(200, 200);
+    ctx.stroke();
+    // 每个beginPath都要执行一次stroke描边
+    ctx.beginPath();
+    ctx.strokeStyle = 'pink';
+    ctx.moveTo(100, 300);
+    ctx.lineTo(200, 300);
+    ctx.stroke();
+    // 只要是非连续路径绘制,都要记得执行一次ctx.beginPath
+  </script>
+</body>
+
+</html>

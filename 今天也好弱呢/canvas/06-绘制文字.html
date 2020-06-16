@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = '1px solid #000';
+
+    // strokeText方法实现文本描边效果
+    // 第一个参数为文本信息,后两个参数为文本的横纵坐标,最后一个参数可选,文本占据的最大宽度
+    // 当文本占据宽度超过此最大宽度时,将压缩每个文本宽度进行适合
+    ctx.font = '50px STHeiti, SimHei';
+    ctx.strokeText('文字描边', 100, 100);
+
+    ctx.font = '30px STHeiti, SimHei';
+    // fillText方法用来填充文字
+    ctx.fillText('填充文字', 200, 200);
+  </script>
+</body>
+
+</html>
