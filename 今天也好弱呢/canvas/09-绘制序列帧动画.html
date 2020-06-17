@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = '1px solid #000';
+
+    const img = new Image();
+    img.src = 'http://img.qqzhi.com/upload/img_5_143391174D2624091941_27.jpg';
+    img.onload = function() {
+      let frameIndex = 0;
+      setInterval(() => {
+        // 清除之前的图片墨迹
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 如果通过代码重新设置canvas画布的宽高,那么canvas画布里面的所有内容都被清空
+        // canvas.width = canvas.width; 
+        ctx.drawImage(
+          img,
+          frameIndex * 141, // 截取原始图片的x坐标
+          0,                // 截取原始图片的y坐标
+          141,              // 截取原始图片的宽度
+          85,               // 截取原始图片的高度
+          100,              // 图片在canvas上的x坐标
+          100,              // 图片在canvas上的y坐标
+          282,              // 绘制图片的宽度
+          170               // 绘制图片的高度
+        );
+        // 添加到下一帧
+        frameIndex++;
+        // 让frameIndex一直小于4
+        frameIndex %= 4;
+      }, 1000 / 12);
+    }
+  </script>
+</body>
+
+</html>

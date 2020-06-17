@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    /* 
+      content.drawImage(img, dx, dy);
+      参数img: 绘制在canvas上的元素,可以是各类canvas图片资源
+      dx: 在canvas上规划一片区域用来放置图片,dx就是这块区域的左上角横坐标
+      dy: 左上角纵坐标
+      content.drawImage(img, dx, dy, dwidth, dheight);
+      dwidth: 在canvas上规划一片区域用来放置图片, dwitdh就是这块区域的宽度
+      dheight: 这块区域的高度
+      content.drawImage(img, sx, sy, swidth, sheight, dx, dy, dwidth, dheight);
+      sx: 表示图片裁剪的左上角横坐标
+      sy: 图片裁剪的左上角纵坐标
+      swidth: 图片裁剪的宽度
+      sheight: 图片裁剪的高度
+     */
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = '1px solid #000';
+
+    const img = new Image();
+    // img.src = 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1592410937561&di=5cc094b101ab2130a0562620d81773c2&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F64%2F76%2F20300001349415131407760417677.jpg';
+    // // 图片加载完触发
+    // img.onload = function() {
+    //   ctx.drawImage(img, 100, 100);
+    // }
+
+    const img2 = new Image();
+    img2.src ='https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1906469856,4113625838&fm=26&gp=0.jpg';
+    img2.onload = function() {
+      // 从图片0,0坐标裁剪图片宽500,高417的区域,放置在canvas的0,0坐标,放置的区域大小为宽100, 高100
+      ctx.drawImage(img2, 0, 0, 500, 417, 0, 0, 100, 100);
+    }
+  </script>
+</body>
+
+</html>

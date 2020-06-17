@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = 600;
+    canvas.height = 600;
+    canvas.style.border = '1px solid #000';
+    let isDraw = false;
+    canvas.onmousedown = function() {
+      isDraw = true;
+      // 每次鼠标按下要开始一个新状态绘图
+      ctx.beginPath();
+    }
+
+    canvas.onmousemove = function(e) {
+      if (!isDraw) return;
+      const x = e.offsetX;
+      const y = e.offsetY;
+      ctx.lineTo(x, y); // 如果之前没moveTo, 那么第一个lineTo相当于moveTo
+      ctx.strokeStyle = 'pink';
+      ctx.stroke();
+    }
+
+    canvas.onmouseup = function() {
+      isDraw = false;
+    }
+  </script>
+</body>
+
+</html>

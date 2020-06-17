@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+<img src="https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=94672939,4094857657&fm=26&gp=0.jpg" >
+<canvas class="canvas" id="canvas" width="557" height="300"></canvas>
+<script>
+  const canavs = document.querySelector('#canvas');
+  const ctx = canvas.getContext('2d');
+  // 设置填充色
+  ctx.fillStyle = '#ccc';
+  // 填充矩形
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  let isClear = false;
+  canvas.onmousedown = function() {
+    isClear = true;
+  }
+  canvas.onmousemove = function(e) {
+    if (!isClear) return;
+    const x = e.offsetX;
+    const y = e.offsetY
+    ctx.clearRect(x, y, 30, 30);
+  }
+  canvas.onmouseup = function() {
+    isClear = false;
+  }
+</script>
+</body>
+</html>
