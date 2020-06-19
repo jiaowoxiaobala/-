@@ -1,3 +1,5 @@
+export default {}
+
 // 布尔类型
 let bool:boolean;
 bool = true;
