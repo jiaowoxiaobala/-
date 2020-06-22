@@ -7,6 +7,8 @@ const mergeFunc = <T, U>(arg1: T, arg2: U): T & U => {
 }
 
 // 联合类型
+// 当typeScript不确实一个联合类型的变量到底是哪个类型的时候,只能
+// 访问此联合类型的所有类型共有的属性或方法
 const getLengthFunc = (content: string | number): number => {
   if (typeof content === 'string') {
     return content.length;

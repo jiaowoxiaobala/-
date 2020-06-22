@@ -19,6 +19,7 @@ interface AddFunc {
   (arg1: string, arg2: number): string
 }
 // 函数的默认参数
+// typeScript会将添加了默认值的参数识别为可选参数,且不受可选参数必须在固定参数后面的限制
 let addfunction = (arg1: string, arg2 = 3) => arg1 + arg2;
 
 // 限制所有参数都是数字类型

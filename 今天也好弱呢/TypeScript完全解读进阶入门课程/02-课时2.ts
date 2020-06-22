@@ -14,12 +14,12 @@ getFullName({
   lastName: 'jiayou'
 });
 
-
 interface Vegetable {
   // 定义可选属性,可传可不传
   color?: string,
   type: string,
   // 多余属性检测
+  // 一旦定义了任意类型,那么确定属性和可选属性的类型都必须是它的类型的子集
   // [prop: string]: any
 }
 
