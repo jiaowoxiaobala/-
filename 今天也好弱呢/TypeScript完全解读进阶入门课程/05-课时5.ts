@@ -54,3 +54,21 @@ interface FoodInterface {
 class FoodClass implements FoodInterface {
   public type: string
 }
+// ES6中实例的属性只能通过构造函数中的this.xxx来定义,在ts中可以直接在类里面定义
+class Animal {
+  name = 'xiaohei'
+  constructor() {
+
+  }
+}
+const a = new Animal();
+console.log(a.name); // xiaohei
+
+// 参数属性
+// 修饰符和readonly还可以在构造函数参数中,等同于类中定义该属性同时给该属性赋值
+class Animal1 {
+  // public name
+  public constructor(public name) {
+    // this.name = name
+  }
+}
