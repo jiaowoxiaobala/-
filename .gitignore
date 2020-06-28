@@ -1,1 +1,3 @@
 node_modules
+# 所有json文件
+*.json
