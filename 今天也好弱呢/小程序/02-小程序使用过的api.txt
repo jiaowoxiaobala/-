@@ -1,0 +1,6 @@
+1.获取元素宽高
+创建节点选择器
+const query = wx.createSelectorQuery()
+query.select('#id').boundingClientRect(res => {
+  对应的元素信息就在res对象里
+}).exec();
