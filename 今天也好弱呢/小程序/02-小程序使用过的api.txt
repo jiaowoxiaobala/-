@@ -4,3 +4,6 @@ const query = wx.createSelectorQuery()
 query.select('#id').boundingClientRect(res => {
   对应的元素信息就在res对象里
 }).exec();
+
+2.自定义组件之间的通信-relation
+当两个自定义组件的relation产生关联时,可以通过this.getRelationNodes方法获取对方组件实例
