@@ -1,0 +1,41 @@
+1.setup
+setup函数是vue3中专门为组件提供的新属性,为Composition API新特性提供了统一的入口
+setup(props, context) {
+  如果setup返回一个对象,则对象的属性将会被合并到组件模板的渲染上下文中
+  return {
+
+  }
+}
+setup接收props作为其第一个参数,第二个参数提供了一个上下文对象,从原来的2.x中this选择性地
+暴露了一些property
+在setup中访问this会得到undefined
+
+2.reactive
+接收一个普通对象然后返回该对象的响应式代理
+const obj = reactive({count: 0})
+
+3.ref
+接收一个参数值并返回一个响应式且可改变的ref对象,ref对象拥有一个指向内部值的单以属性.value
+const count = ref(0)
+在setup中使用ref时需要加.value,但是setup返回的ref在模板中会自动解开,不需要加.value
+如果ref传入的是一个对象,将调用reactive方法进行深层响应转换
+当ref作为reactive对象的property被访问或修改时,也将自动解套value值,其行为类似普通属性
+注意: 如果将一个新的ref分配给现有的ref,将替换旧的ref
+
+4.computed-计算属性
+传入一个getter函数,返回一个默认不可手动修改的ref对象或者传入一个拥有get和set函数的对象
+创建一个可手动修改的计算状态
+computed设置的值会被当做set的参数
+const count = computed(() => 1); 
+count.value的值为1
+
+5.readonly
+传入一个对象或ref,返回一个原始对象的只读代理,这个只读代理是'深层的',对象内部任何嵌套的属性也都是只读的
+
+6.watchEffect
+立即执行传入的一个函数,并响应式追踪其依赖,并在其依赖变更时重新运行该函数
+当watchEffect在组件的setup函数或生命周期钩子被调用时,侦听器会被链接到该组件的生命周期,并在组件卸载
+时自动停止
+在一些情况下,也可以显示调用返回值以停止侦听
+const stop = watchEffect(() => {})
+stop()

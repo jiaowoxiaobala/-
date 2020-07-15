@@ -14,3 +14,8 @@
 组件内部无法控制也无法修改。除非外部组件主动传入新的props,否则组件的props永远保持不变
 
 7.如果往{}放一个数组,react会把数组里一个个元素罗列并且渲染出来
+
+8.react中使用less,要下载less和less-loader,在webpack.config.js中设置
+  cssRegex = /\.(css|les)$/;
+  cssModuleRegex = /\.module\.(css|less)$/;
+并在使用这两个正则的地方,配置less-loader
