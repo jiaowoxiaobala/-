@@ -34,3 +34,14 @@ Promise.race([requestImg(), timeout()]).then(res => {
 }).catch(err => {
   // 图片请求失败
 })
+
+// 注意点:
+// 1.promise的then和catch传入非函数的参数会发生值穿透
+// 2.then或catch返回的值不能是promise本身,否则会造成死循环
+const promise = Promise.resolve()
+.then(() => {
+  // 不能返回promise本身
+  return promise
+})
+// 3.在then或catch中return一个error对象并不会抛出错误,所以不会被后续的catch捕获
+// 4.promise构造函数中的resolve或reject只有第一次执行有效,多次调用没有任何作用

@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
-</html>
+采用flex布局的元素,称为flex容器,它的所有子元素自动称为容器成员,称为项目
+
+容器的属性:
+  1.flex-direction
+  决定主轴的方向(即项目的排列方向)
+  2.flex-wrap
+  决定项目是否换行(默认不换行)
+  3.flex-flow
+  前面两个属性的简写
+  4.justify-content
+  定义项目在主轴上的对齐方式
+  5.align-items
+  定义项目在交叉轴的对齐方式
+  6.align-content
+  定义多根轴线的对齐方式,如果项目只有一根轴线,此属性不起作用
+
+项目的属性:
+  1.order
+  定义项目的排列顺序,数值越小,越靠前,默认为0
+  2.flex-grow
+  定义项目的放大比列,默认为0,即如果存在剩余空间,也不放大
+  3.flex-shrink
+  定义项目的缩小比列,默认为1,即如果空间不足,该项目会缩小
+  4.flex-basis
+  定义在分配多余空间之前,项目占据的主轴空间,可以设置项目占据固定空间
+  5.flex
+  前面三个属性的缩写
+  6.align-self
+  定义flex子项单独在侧轴上的对齐方式

@@ -21,6 +21,8 @@
       :checked 选取勾选状态的input元素,只对radio/checkbox生效
       :disabled 选取禁用的表单元素
       :only-child选取唯一子元素
+      :focus 获取焦点
+      :required 指定具有required属性的表单元素
      */
     .p1::first-letter {
       color: skyblue;
@@ -50,6 +52,12 @@
     [type="checkbox"]:checked {
       width: 50px;
     }
+    [type="email"]:valid {
+      color: blue;
+    }
+    [type="email"]:invalid {
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -62,5 +70,6 @@
 <button disabled>按钮</button>
 <a href="#">我是超链接</a>
 <input type="checkbox">
+<input type="email">
 </body>
 </html>
