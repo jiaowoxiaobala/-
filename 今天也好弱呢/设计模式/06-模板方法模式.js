@@ -42,7 +42,6 @@ class Beverage {
   }
 }
 
-
 class Coffee extends Beverage {
   constructor() {
     super();
@@ -59,3 +58,16 @@ class Coffee extends Beverage {
 
 const coffee = new Coffee();
 coffee.init();
+
+// 如果还需要泡茶
+class Tea extends Beverage {
+  brewDrink() {
+    console.log('冲泡茶');
+  }
+  addCondiment() {
+    console.log('加点枸杞')
+  }
+}
+
+const tea = new Tea();
+tea.init();
