@@ -1,0 +1,11 @@
+cookie是浏览器管理状态的一个文件
+
+cookie的属性:
+  -name: 代表cookie的名字,一个域下绑定的cookie,name不能相同
+  -value: 表示cookie的值
+  -domain: 指的是域名,如果没有设置会自动绑定到执行语句的当前域
+  -path: 匹配的web路由
+  -expires: cookie的有效期
+  -secure: 这个属性为true时,cookie只会在https和ssl等安全协议下传输
+  -httponly: 这个属性为true时, 不能通过js脚本来获取cookie的值(防止XSS攻击)
+  -SameSite: 可以让cookie在跨站请求时不会被发送(防止跨站请求伪造攻击)
