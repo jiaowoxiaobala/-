@@ -1,0 +1,28 @@
+常见的http头:
+  -Accept: 客户端告知服务器可以处理的内容类型(比如text/html)
+  -Accept-Charset: 客户端告知服务器可以处理的字符集类型(比如utf-8的字符集)
+  -Accept-Encoding: 客户端告知服务器能够理解的内容编码方式(通常是某种压缩算法)
+  -Accept-Language: 客户端声明可以理解的语言
+  -Accept-ranges: 服务器标识自身支持范围请求(可以尝试继续中断了的下载,而不是重新开始)
+  -Authorization: 含有服务器用于验证用户代理身份的凭证
+  -Allow: 用于枚举资源所支持的HTTP方法集合(如GET、POST、PUT等)
+  -Connection: 是否需要持久连接(在HTTP1.1中默认开启,关闭需要设置Connection:close)
+  -Cache-Control: 指定指令来实现缓存机制(强缓存字段)
+  -Content-Encoding: 服务器告知客户端响应对象的编码方式
+  -Content-Type: 服务器告知客户端响应对象的类型
+  -Content-Length: 服务器告知客户端响应对象的大小
+  -Content-Language: 服务器告知客户端响应对象的语言
+  -Content-Range: 显示的是一个数据片段在整个文件中的位置
+  -Data: 报文创建的日期和时间
+  -Etag: 协商缓存字段(一个标识符)
+  -Expires: 强缓存字段(包含日期/时间)
+  -Host: 指定访问服务器的域名/主机名和端口号(HTTP1.1中强制要求携带,因为一个IP地址可以
+对应多个域名)
+  -If-Modified-Since: 协商缓存字段(配合Last-Modified)
+  -If-None-Match: 协商缓存字段(配合Etag)
+  -Last-Modified: 协商缓存字段(资源做出修改的日期及时间)
+  -Referer: 表示请求文件的网址(可以防止自己网站文件被外网直接引用)
+  -Set-Cookie: 设置cookie
+  -Server: 服务器信息(一般用作服务器名称)
+  -Transfer-Encoding: 指明了将实体报头传输给用户所采取的编码形式(比如分块chunked)
+  -User-Agent: 用户代理信息(客户端信息)

@@ -1,0 +1,37 @@
+cookie是浏览器管理状态的一个文件(存储在客户端,不可跨域)
+
+cookie的属性:
+  -name: 代表cookie的名字,一个域下绑定的cookie,name不能相同
+  -value: 表示cookie的值
+  -domain: 指的是域名,如果没有设置会自动绑定到执行语句的当前域
+  -path: 匹配的web路由
+  -expires: cookie的有效期
+  -secure: 这个属性为true时,cookie只会在https和ssl等安全协议下传输
+  -httponly: 这个属性为true时, 不能通过js脚本来获取cookie的值(防止XSS攻击)
+  -SameSite: 可以让cookie在跨站请求时不会被发送(防止跨站请求伪造攻击)
+
+HTTP是无状态协议(每次客户端和服务端会话完成后,服务端不会保存任何会话信息)
+
+session是另一种记录服务端和客户端会话状态的机制,基于cookie实现的(session存储
+在服务端,sessionId会被存储到客户端的cookie中)
+
+session认证流程:
+  -用户第一次请求服务器时,服务器根据用户提交的相关信息,创建对应的session
+  -请求返回时将此session的唯一标识信息sessionId返回给浏览器
+  -浏览器接收到服务器返回的sessionId信息后,会将此信息存入到cookie中,同时cookie记录
+此sessionId属于哪个域名
+  -当用户第二次访问服务器时,请求会自动判断此域名下是否存在cookie信息,如果存在则
+自动将cookie信息也发送给服务器,服务器会从cookie中获取sessionId,再根据sessionId查
+找对应的session信息,如果没有找到说明用户没有登录或登录失效,如果找到session证明用户
+已经登录可执行后续操作
+
+cookie与session的区别:
+  -安全性: session比cookie安全,session存储在服务器,cookie存储在客户端
+  -存取值类型: cookie只支持字符串数据,session可以存任意数据类型
+  -有效期: cookie可设置为长时间保存,session一般失效时间较短,客户端关闭(默认情况下)或者
+session超时都会失效
+  -存储大小: 单个cookie保存的数据不能超过4k,session可存储数据远高于cookie
+
+如果浏览器禁止cookie:
+  -可以在请求中把sessionId当作参数传递
+  -使用Token机制,Token多用于App客户端和服务器交互,也可以用于Web端做用户状态管理
