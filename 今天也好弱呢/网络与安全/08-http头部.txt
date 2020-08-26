@@ -4,7 +4,8 @@
   -Accept-Encoding: 客户端告知服务器能够理解的内容编码方式(通常是某种压缩算法)
   -Accept-Language: 客户端声明可以理解的语言
   -Accept-ranges: 服务器标识自身支持范围请求(可以尝试继续中断了的下载,而不是重新开始)
-  -Authorization: 含有服务器用于验证用户代理身份的凭证
+  -Authorization: 含有服务器用于验证用户代理身份的凭证(通常在服务器返回401状态码等
+情况后,在后续请求中发送)
   -Allow: 用于枚举资源所支持的HTTP方法集合(如GET、POST、PUT等)
   -Connection: 是否需要持久连接(在HTTP1.1中默认开启,关闭需要设置Connection:close)
   -Cache-Control: 指定指令来实现缓存机制(强缓存字段)
@@ -21,6 +22,7 @@
   -If-Modified-Since: 协商缓存字段(配合Last-Modified)
   -If-None-Match: 协商缓存字段(配合Etag)
   -Last-Modified: 协商缓存字段(资源做出修改的日期及时间)
+  -Location: 指定需要将页面重定向的地址(一般在301,302等状态码中))
   -Referer: 表示请求文件的网址(可以防止自己网站文件被外网直接引用)
   -Set-Cookie: 设置cookie
   -Server: 服务器信息(一般用作服务器名称)

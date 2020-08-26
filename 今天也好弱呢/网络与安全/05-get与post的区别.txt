@@ -1,5 +1,5 @@
 GET和POST方法没有实质区别,只是报文格式不同
-GET和POST只是HTTP协议中两种请求方式,而HTTP协议是基于TCP/IP的应用层协议,无论
+GET和POST只是HTTP协议中两种请求方法,而HTTP协议是基于TCP/IP的应用层协议,无论
 GET还是POST用的都是同一个传输层协议,所以在传输上,没有区别
 
 关于GET方法的长度限制(HTTP协议中并没有Body和URL的长度限制,对URL限制的大多是浏览器
