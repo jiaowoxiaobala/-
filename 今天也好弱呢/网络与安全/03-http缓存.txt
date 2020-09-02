@@ -36,3 +36,11 @@ Etag和Last-Modifed对比:
 性能上,Last-Modified优于Etag,Last-Modified仅仅只是记录一个时间点,而Etag需要根据文件
 的具体内容生成哈希值
 优先级上,Etag优于Last-Modified
+
+cache-control的常见属性:
+  private: 客户端可以缓存
+  public: 客户端和代理服务器都可以缓存
+  max-age: 缓存内容将在多少秒后过期
+  no-cache: 可以缓存,但每次都需要去向服务器验证缓存是否可用
+  no-store: 任何内容都不会被缓存
+  
